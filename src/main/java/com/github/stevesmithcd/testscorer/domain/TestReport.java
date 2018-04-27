@@ -1,24 +1,18 @@
 package com.github.stevesmithcd.testscorer.domain;
 
-import java.util.*;
+import java.time.LocalDateTime;
+import java.util.Iterator;
+import java.util.Set;
 
 public class TestReport implements Iterable<Test>, Comparable<TestReport> {
     private final String name;
-    private final Date timestamp;
+    private final LocalDateTime creationTimestamp;
     private final Set<Test> tests;
 
-    public TestReport(String name, Date timestamp, List<Test> tests) {
+    public TestReport(String name, LocalDateTime creationTimestamp, Set<Test> tests) {
         this.name = name;
-        this.timestamp = timestamp;
-        this.tests = new TreeSet<>();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
+        this.creationTimestamp = creationTimestamp;
+        this.tests = tests;
     }
 
     @Override
@@ -28,8 +22,6 @@ public class TestReport implements Iterable<Test>, Comparable<TestReport> {
 
     @Override
     public int compareTo(TestReport o) {
-        if (timestamp.equals(o.timestamp)) return name.compareTo(o.name);
-
-        return timestamp.before(o.timestamp) ? -1 : 1;
+        return creationTimestamp.equals(o.creationTimestamp) ? name.compareTo(o.name) : creationTimestamp.compareTo(o.creationTimestamp);
     }
 }

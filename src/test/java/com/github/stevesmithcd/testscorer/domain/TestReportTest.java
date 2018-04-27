@@ -1,25 +1,25 @@
 package com.github.stevesmithcd.testscorer.domain;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 
-import static java.util.Collections.emptyList;
+import static java.time.Month.*;
+import static java.util.Collections.emptySet;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public final class TestReportTest {
-    private static final String YESTERDAY = "20180101T0900";
-    private static final String TODAY = "20180102T0900";
-    private static final String TOMORROW = "20180103T0900";
+    private static final TestReport REPORT_1_JAN = new TestReport("R1", LocalDateTime.of(2018, JANUARY, 1, 0, 0), emptySet());
+    private static final TestReport REPORT_2_JAN = new TestReport("R2", LocalDateTime.of(2018, JANUARY, 2, 0, 0), emptySet());
+    private static final TestReport REPORT_3_JAN = new TestReport("R3", LocalDateTime.of(2018, JANUARY, 3, 0, 0), emptySet());
 
     @org.junit.Test
-    public void shouldBeOrderedByEarlierTimestamp() throws Exception {
-        assertThat(aTestReportFrom(YESTERDAY).compareTo(aTestReportFrom(TODAY)), is(-1));
-        assertThat(aTestReportFrom(TODAY).compareTo(aTestReportFrom(TODAY)), is(0));
-        assertThat(aTestReportFrom(TOMORROW).compareTo(aTestReportFrom(TODAY)), is(1));
+    public void shouldOrderByEarliestCreationTimestamp() throws Exception {
+        assertCompare(REPORT_1_JAN, REPORT_2_JAN, -1);
+        assertCompare(REPORT_2_JAN, REPORT_2_JAN, 0);
+        assertCompare(REPORT_3_JAN, REPORT_2_JAN, 1);
     }
 
-    private TestReport aTestReportFrom(String timestamp) throws ParseException {
-        return new TestReport("name", new SimpleDateFormat("yyyyMMdd'T'hhMM").parse(timestamp), emptyList());
+    private static void assertCompare(TestReport testReport, TestReport otherTestReport, int expected) {
+        assertThat(testReport.compareTo(otherTestReport), is(expected));
     }
 }
