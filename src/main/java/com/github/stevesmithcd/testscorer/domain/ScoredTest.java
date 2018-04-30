@@ -19,6 +19,20 @@ public final class ScoredTest implements Comparable<ScoredTest> {
 
     @Override
     public int compareTo(ScoredTest o) {
-        return (score < o.score) ? 1 : ((score == o.score) ? 0 : -1);
+        return (score < o.score) ? 1 : ((score == o.score) ? name.compareTo(o.name) : -1);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ScoredTest that = (ScoredTest) o;
+        return score == that.score && (name != null ? name.equals(that.name) : that.name == null);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * (name != null ? name.hashCode() : 0) + score;
     }
 }
