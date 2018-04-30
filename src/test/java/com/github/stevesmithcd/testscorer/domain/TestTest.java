@@ -13,10 +13,10 @@ public final class TestTest {
     private static final Test TEST_1100 = new Test("R3", of(2018, JANUARY, 1, 11, 0), ZERO, SUCCESS);
 
     @org.junit.Test
-    public void shouldOrderByEarliestRunTime() throws Exception {
-        assertCompare(TEST_1000, TEST_0900, -1);
+    public void shouldOrderByEarliestRunTimeFirst() throws Exception {
+        assertCompare(TEST_1000, TEST_0900, 1);
         assertCompare(TEST_1000, TEST_1000, 0);
-        assertCompare(TEST_1000, TEST_1100, 1);
+        assertCompare(TEST_1000, TEST_1100, -1);
     }
 
 
