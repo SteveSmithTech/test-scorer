@@ -1,5 +1,7 @@
 package com.github.stevesmithcd.testscorer.domain;
 
+import static java.lang.String.format;
+
 public final class ScoredTest implements Comparable<ScoredTest> {
     private final String name;
     private final int score;
@@ -34,5 +36,10 @@ public final class ScoredTest implements Comparable<ScoredTest> {
     @Override
     public int hashCode() {
         return 31 * (name != null ? name.hashCode() : 0) + score;
+    }
+
+    @Override
+    public String toString() {
+        return format("%s: %d", name, score);
     }
 }

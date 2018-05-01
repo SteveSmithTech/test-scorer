@@ -1,33 +1,19 @@
 package com.github.stevesmithcd.testscorer.domain;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-
-public final class Test implements Comparable<Test> {
+public final class Test {
     private final String name;
-    private final LocalDateTime runTime;
     private final Result result;
 
-    public Test(String name, LocalDateTime runTime, Result result) {
+    public Test(String name, Result result) {
         this.name = name;
-        this.runTime = runTime;
         this.result = result;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public LocalDateTime getRunTime() {
-        return runTime;
-    }
-
-    public Result getResult() {
-        return result;
-    }
-
-    @Override
-    public int compareTo(Test o) {
-        return runTime.equals(o.runTime) ? name.compareTo(o.name) : runTime.compareTo(o.runTime);
+    boolean failed() {
+        return result.failed();
     }
 }

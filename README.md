@@ -42,4 +42,4 @@ attempt to automate the hard work of [Trisha Gee](https://github.com/trishagee) 
 [Dave Farley](https://www.twitter.com/DaveFarley77) has described it in several public talks on Continuous Delivery at LMAX, including "The process, 
 technology and practice of Continuous Delivery" at [QCon London 2014](https://qconlondon.com/london-2014/london-2014/speaker/Dave+Farley.html).  
  
-Thanks to Dave Farley and Dave Hounslow for the knowledge sharing and encouragement. :)  
+Thanks to Dave Farley and Dave Hounslow for the shared memory recall, and encouragement. :)  
