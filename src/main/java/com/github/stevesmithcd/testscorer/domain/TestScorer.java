@@ -3,6 +3,7 @@ package com.github.stevesmithcd.testscorer.domain;
 import java.util.*;
 
 import static java.util.Arrays.asList;
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toCollection;
 
 final class TestScorer {
@@ -23,12 +24,12 @@ final class TestScorer {
     }
 
     private static int scoreTest(Test test, int recencyOfTestReport, int numberOfTestReports) {
-        return (test.failed() ? 1 : 0) * (numberOfTestReports - recencyOfTestReport);
+        return (test.unsuccessful() ? 1 : 0) * (numberOfTestReports - recencyOfTestReport);
     }
 
     private static List<TestReport> sort(TestReport ... testReports) {
         List<TestReport> sorted = asList(testReports);
-        sorted.sort(Comparator.comparing(TestReport::getCreationTimestamp).reversed());
+        sorted.sort(comparing(TestReport::getCreationTimestamp).reversed());
         return sorted;
     }
 }

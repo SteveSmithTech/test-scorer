@@ -10,7 +10,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static java.nio.file.Files.write;
 import static java.time.LocalDateTime.now;
 
-public final class TextTestScoreboard implements Formatter {
+public final class TextScoredTestsFormatter implements ScoredTestsFormatter {
 
     @Override
     public void format(SortedSet<ScoredTest> scoredTests, File file) throws IOException {

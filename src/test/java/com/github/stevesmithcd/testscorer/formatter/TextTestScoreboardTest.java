@@ -20,7 +20,7 @@ public class TextTestScoreboardTest {
     @Test
     public void shouldWriteTextTestScoreboardToFile() throws IOException {
         File file = createTempFile(getClass().getSimpleName(), "txt");
-        new TextTestScoreboard().format(asSet(new ScoredTest("testApples", 10), new ScoredTest("testBananas", 15)), file);
+        new TextScoredTestsFormatter().format(asSet(new ScoredTest("testApples", 10), new ScoredTest("testBananas", 15)), file);
 
         List<String> fileLines = Files.readAllLines(file.toPath());
         assertThat(fileLines.get(0).contains("Test Scorer : Test Scoreboard"), is(true));

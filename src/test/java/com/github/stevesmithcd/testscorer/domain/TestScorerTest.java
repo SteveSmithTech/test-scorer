@@ -86,7 +86,7 @@ public class TestScorerTest {
     private static TestReport aNovReport(Test ... tests) { return aTestReport(of(2018, 11, 1, 0, 0), tests); }
     private static TestReport aDecReport(Test ... tests) { return aTestReport(of(2018, 12, 1, 0, 0), tests); }
 
-    private static TestReport aTestReport(LocalDateTime dateTime, Test... tests) { return new TestReport(format("R%s", dateTime.toString()), dateTime, asList(tests)); }
+    private static TestReport aTestReport(LocalDateTime dateTime, Test... tests) { return new TestReport(format("R%s", dateTime.toString()), asList(tests)); }
 
     private static Test aSuccess(int id) { return aTest(id, SUCCESS); }
 
@@ -95,7 +95,7 @@ public class TestScorerTest {
     private static Test anIgnored(int id) { return aTest(id, IGNORED); }
 
     private static Test aTest(int id, Result result) {
-        return new Test(toTestId(id), result);
+        return new Test(toTestId(id), dateTime, result);
     }
 
     private static String toTestId(int id) { return format("T%d", id); }

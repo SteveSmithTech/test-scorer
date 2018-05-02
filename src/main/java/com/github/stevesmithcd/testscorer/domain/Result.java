@@ -4,9 +4,10 @@ package com.github.stevesmithcd.testscorer.domain;
 public enum Result {
     SUCCESS,
     FAILED,
+    ERROR,
     IGNORED;
 
-    boolean failed() {
-        return this == FAILED;
+    boolean unsuccessful() {
+        return this == FAILED || this == ERROR;
     }
 }

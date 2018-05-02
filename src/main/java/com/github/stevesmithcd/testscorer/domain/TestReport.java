@@ -3,25 +3,17 @@ package com.github.stevesmithcd.testscorer.domain;
 import java.time.LocalDateTime;
 import java.util.Iterator;
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class TestReport implements Iterable<Test> {
-    private final String name;
-    private final LocalDateTime creationTimestamp;
-    private final List<Test> tests;
+    private final SortedSet<Test> tests;
 
-    public TestReport(String name, LocalDateTime creationTimestamp, List<Test> tests) {
-        this.name = name;
-        this.creationTimestamp = creationTimestamp;
-        this.tests = tests;
+    public TestReport(List<Test> tests) {
+        this.tests = new TreeSet<>(tests);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public LocalDateTime getCreationTimestamp() {
-        return creationTimestamp;
-    }
+    LocalDateTime getCreationTimestamp() { return tests.last().getRunTime(); }
 
     @Override
     public Iterator<Test> iterator() {
