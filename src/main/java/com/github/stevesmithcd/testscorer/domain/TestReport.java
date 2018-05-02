@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-public class TestReport implements Iterable<Test> {
-    private final SortedSet<Test> tests;
+public class TestReport implements Iterable<TestResult> {
+    private final SortedSet<TestResult> testResults;
 
-    public TestReport(List<Test> tests) {
-        this.tests = new TreeSet<>(tests);
+    public TestReport(List<TestResult> testResults) {
+        this.testResults = new TreeSet<>(testResults);
     }
 
-    LocalDateTime getCreationTimestamp() { return tests.last().getRunTime(); }
+    LocalDateTime getCreationTimestamp() { return testResults.last().getRunTime(); }
 
     @Override
-    public Iterator<Test> iterator() {
-        return tests.iterator();
+    public Iterator<TestResult> iterator() {
+        return testResults.iterator();
     }
 }

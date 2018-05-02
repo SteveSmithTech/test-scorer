@@ -2,12 +2,12 @@ package com.github.stevesmithcd.testscorer.domain;
 
 import java.time.LocalDateTime;
 
-public final class Test implements Comparable<Test> {
+public final class TestResult implements Comparable<TestResult> {
     private final String name;
     private LocalDateTime runTime;
     private final Result result;
 
-    public Test(String name, LocalDateTime runTime, Result result) {
+    public TestResult(String name, LocalDateTime runTime, Result result) {
         this.name = name;
         this.runTime = runTime;
         this.result = result;
@@ -27,7 +27,7 @@ public final class Test implements Comparable<Test> {
 
 
     @Override
-    public int compareTo(Test o) {
+    public int compareTo(TestResult o) {
         return runTime.equals(o.runTime) ? name.compareTo(o.name) : runTime.compareTo(o.runTime);
     }
 

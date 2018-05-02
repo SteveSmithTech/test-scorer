@@ -14,17 +14,17 @@ final class TestScorer {
         Map<String, Integer> scores = new HashMap<>();
         for (int i = 0, n = sortedTestReports.size(); i < n; i++) {
             TestReport testReport = sortedTestReports.get(i);
-            for (Test test : testReport) {
-                final Integer runningScore = scores.getOrDefault(test.getName(), 0);
-                scores.put(test.getName(), runningScore + scoreTest(test, i, n));
+            for (TestResult testResult : testReport) {
+                final Integer runningScore = scores.getOrDefault(testResult.getName(), 0);
+                scores.put(testResult.getName(), runningScore + scoreTest(testResult, i, n));
             }
         }
 
         return scores.entrySet().stream().map(e -> new ScoredTest(e.getKey(), e.getValue())).collect(toCollection(TreeSet::new));
     }
 
-    private static int scoreTest(Test test, int recencyOfTestReport, int numberOfTestReports) {
-        return (test.unsuccessful() ? 1 : 0) * (numberOfTestReports - recencyOfTestReport);
+    private static int scoreTest(TestResult testResult, int recencyOfTestReport, int numberOfTestReports) {
+        return (testResult.unsuccessful() ? 1 : 0) * (numberOfTestReports - recencyOfTestReport);
     }
 
     private static List<TestReport> sort(TestReport ... testReports) {

@@ -1,7 +1,7 @@
 package com.github.stevesmithcd.testscorer.parser;
 
 import com.github.stevesmithcd.testscorer.domain.Result;
-import com.github.stevesmithcd.testscorer.domain.Test;
+import com.github.stevesmithcd.testscorer.domain.TestResult;
 import com.github.stevesmithcd.testscorer.domain.TestReport;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
@@ -31,7 +31,7 @@ public final class SerenityTestReportParser implements TestReportParser {
         }
     }
 
-    private static Function<CSVRecord, Test> toTest() { return r -> new Test(getName(r), getDateTime(r), getResult(r)); }
+    private static Function<CSVRecord, TestResult> toTest() { return r -> new TestResult(getName(r), getDateTime(r), getResult(r)); }
 
     private static BufferedReader createCsvReader(File directory) throws IOException { return new BufferedReader(new FileReader(findCsvTestReport(directory))); }
 

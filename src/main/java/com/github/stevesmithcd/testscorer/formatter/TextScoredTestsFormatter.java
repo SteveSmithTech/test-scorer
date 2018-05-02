@@ -30,7 +30,7 @@ public final class TextScoredTestsFormatter implements ScoredTestsFormatter {
     }
 
     private static String createScoreboardHeader() {
-        return String.format("Test Scorer : Test Scoreboard %s\n===========================\n", now().toString());
+        return String.format("TestResult Scorer : TestResult Scoreboard %s\n===========================\n", now().toString());
     }
 
     private static String createScoreboardRow(int position, ScoredTest scoredTest) {

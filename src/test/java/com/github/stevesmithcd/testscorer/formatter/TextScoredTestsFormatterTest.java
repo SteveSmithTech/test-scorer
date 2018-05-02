@@ -15,7 +15,7 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class TextTestScoreboardTest {
+public class TextScoredTestsFormatterTest {
 
     @Test
     public void shouldWriteTextTestScoreboardToFile() throws IOException {
@@ -23,7 +23,7 @@ public class TextTestScoreboardTest {
         new TextScoredTestsFormatter().format(asSet(new ScoredTest("testApples", 10), new ScoredTest("testBananas", 15)), file);
 
         List<String> fileLines = Files.readAllLines(file.toPath());
-        assertThat(fileLines.get(0).contains("Test Scorer : Test Scoreboard"), is(true));
+        assertThat(fileLines.get(0).contains("TestResult Scorer : TestResult Scoreboard"), is(true));
         assertThat(fileLines.get(2), equalTo("1: testBananas [15]"));
         assertThat(fileLines.get(3), equalTo("2: testApples [10]"));
     }
