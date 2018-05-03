@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public interface TestReportParser {
+public interface Parser<T> {
 
-    TestReport parse(File directory) throws IOException;
+    T parse(File directory) throws IOException;
 }

@@ -1,6 +1,5 @@
 package com.github.stevesmithcd.testscorer.parser;
 
-import com.github.stevesmithcd.testscorer.domain.Result;
 import com.github.stevesmithcd.testscorer.domain.TestReport;
 import com.github.stevesmithcd.testscorer.domain.TestResult;
 import org.junit.Test;
@@ -8,7 +7,6 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 import static com.github.stevesmithcd.testscorer.domain.Result.*;
 import static java.time.LocalDateTime.of;
@@ -20,7 +18,7 @@ import static org.junit.Assert.assertThat;
 
 public class SerenityTestReportParserTest {
     private final File directory = new File("src/test/resources");
-    private final TestReportParser serenityTestReportParser = new SerenityTestReportParser();
+    private final Parser<TestReport> serenityTestReportParser = new SerenityTestReportParser();
 
     @Test
     public void shouldParseTestReport() throws IOException {

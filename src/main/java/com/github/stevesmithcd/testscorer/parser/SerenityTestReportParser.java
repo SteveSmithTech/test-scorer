@@ -1,8 +1,8 @@
 package com.github.stevesmithcd.testscorer.parser;
 
 import com.github.stevesmithcd.testscorer.domain.Result;
-import com.github.stevesmithcd.testscorer.domain.TestResult;
 import com.github.stevesmithcd.testscorer.domain.TestReport;
+import com.github.stevesmithcd.testscorer.domain.TestResult;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
@@ -11,14 +11,15 @@ import java.time.LocalDateTime;
 import java.util.function.Function;
 
 import static com.github.stevesmithcd.testscorer.domain.Result.valueOf;
+import static com.github.stevesmithcd.testscorer.parser.FileFilters.isSerenityResultsFile;
 import static java.lang.String.format;
 import static java.time.format.DateTimeFormatter.ofPattern;
+import static java.util.Arrays.stream;
+import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
-public final class SerenityTestReportParser implements TestReportParser {
-
-    private static final String SERENITY_CSV_FILENAME = "results.csv";
+public final class SerenityTestReportParser implements Parser<TestReport> {
     private static final String SERENITY_CSV_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
 
     @Override
@@ -42,10 +43,8 @@ public final class SerenityTestReportParser implements TestReportParser {
     private static Result getResult(CSVRecord record) { return valueOf(record.get("Result")); }
 
     private static File findCsvTestReport(File directory) throws FileNotFoundException {
-        File csv = new File(directory, SERENITY_CSV_FILENAME);
-        if (!csv.exists()) {
-            throw new FileNotFoundException(format("The Serenity test reports CSV file could not be found at '%s'", csv));
-        }
-        return csv;
+        return stream(ofNullable(directory.listFiles(isSerenityResultsFile())).orElse(new File[0])).findFirst().
+                      orElseThrow(() -> new FileNotFoundException(format("Serenity results CSV file could not be found in '%s'", directory)));
     }
+
 }
