@@ -3,11 +3,11 @@ package com.github.stevesmithcd.testscorer.domain;
 @SuppressWarnings("unused")
 public enum Result {
     SUCCESS,
-    FAILED,
+    FAILURE,
     ERROR,
     IGNORED;
 
     boolean unsuccessful() {
-        return this == FAILED || this == ERROR;
+        return this == FAILURE || this == ERROR;
     }
 }

@@ -69,29 +69,29 @@ public class TestScorerTest {
     }
 
     private static TestResult aJanSuccess(int id) { return aTestResult(id, JANUARY, SUCCESS); }
-    private static TestResult aJanFailure(int id) { return aTestResult(id, JANUARY, FAILED); }
+    private static TestResult aJanFailure(int id) { return aTestResult(id, JANUARY, FAILURE); }
     private static TestResult aJanIgnored(int id) { return aTestResult(id, JANUARY, IGNORED); }
     private static TestResult aFebSuccess(int id) { return aTestResult(id, FEBRUARY, SUCCESS); }
-    private static TestResult aFebFailure(int id) { return aTestResult(id, FEBRUARY, FAILED); }
+    private static TestResult aFebFailure(int id) { return aTestResult(id, FEBRUARY, FAILURE); }
     private static TestResult aFebIgnored(int id) { return aTestResult(id, FEBRUARY, IGNORED); }
     private static TestResult aMarSuccess(int id) { return aTestResult(id, MARCH, SUCCESS); }
-    private static TestResult aMarFailure(int id) { return aTestResult(id, MARCH, FAILED); }
+    private static TestResult aMarFailure(int id) { return aTestResult(id, MARCH, FAILURE); }
     private static TestResult aAprSuccess(int id) { return aTestResult(id, APRIL, SUCCESS); }
-    private static TestResult aAprFailure(int id) { return aTestResult(id, APRIL, FAILED); }
+    private static TestResult aAprFailure(int id) { return aTestResult(id, APRIL, FAILURE); }
     private static TestResult aMaySuccess(int id) { return aTestResult(id, MAY, SUCCESS); }
-    private static TestResult aMayFailure(int id) { return aTestResult(id, MAY, FAILED); }
+    private static TestResult aMayFailure(int id) { return aTestResult(id, MAY, FAILURE); }
     private static TestResult aJunSuccess(int id) { return aTestResult(id, JUNE, SUCCESS); }
-    private static TestResult aJunFailure(int id) { return aTestResult(id, JUNE, FAILED); }
+    private static TestResult aJunFailure(int id) { return aTestResult(id, JUNE, FAILURE); }
     private static TestResult aJulSuccess(int id) { return aTestResult(id, JULY, SUCCESS); }
-    private static TestResult aJulFailure(int id) { return aTestResult(id, JULY, FAILED); }
+    private static TestResult aJulFailure(int id) { return aTestResult(id, JULY, FAILURE); }
     private static TestResult aAugSuccess(int id) { return aTestResult(id, AUGUST, SUCCESS); }
     private static TestResult aSepSuccess(int id) { return aTestResult(id, SEPTEMBER, SUCCESS); }
     private static TestResult aOctSuccess(int id) { return aTestResult(id, OCTOBER, SUCCESS); }
-    private static TestResult aOctFailure(int id) { return aTestResult(id, OCTOBER, FAILED); }
+    private static TestResult aOctFailure(int id) { return aTestResult(id, OCTOBER, FAILURE); }
     private static TestResult aNovSuccess(int id) { return aTestResult(id, NOVEMBER, SUCCESS); }
-    private static TestResult aNovFailure(int id) { return aTestResult(id, NOVEMBER, FAILED); }
+    private static TestResult aNovFailure(int id) { return aTestResult(id, NOVEMBER, FAILURE); }
     private static TestResult aDecSuccess(int id) { return aTestResult(id, DECEMBER, SUCCESS); }
-    private static TestResult aDecFailure(int id) { return aTestResult(id, DECEMBER, FAILED); }
+    private static TestResult aDecFailure(int id) { return aTestResult(id, DECEMBER, FAILURE); }
 
     private static Matcher<SortedSet<ScoredTest>> hasScores(ScoredTest ... expected) { return equalTo(asSet(expected)); }
 

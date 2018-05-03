@@ -19,12 +19,12 @@ import static java.util.stream.StreamSupport.stream;
 public final class SerenityTestReportParser implements TestReportParser {
 
     private static final String SERENITY_CSV_FILENAME = "results.csv";
-    private static final String SERENITY_CSV_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
+    private static final String SERENITY_CSV_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
 
     @Override
     public TestReport parse(File directory) throws IOException {
         try (Reader csvReader = createCsvReader(directory)) {
-            Iterable<CSVRecord> csvRecords = CSVFormat.DEFAULT.parse(csvReader);
+            Iterable<CSVRecord> csvRecords = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvReader);
             return new TestReport(stream(csvRecords.spliterator(), false).
                                   map(toTest()).
                                   collect(toList()));
