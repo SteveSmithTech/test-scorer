@@ -6,9 +6,13 @@ import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toCollection;
 
-final class TestScorer {
+public final class TestScorer {
 
-    SortedSet<ScoredTest> score(TestReport... testReports) {
+    public SortedSet<ScoredTest> score(TestReport... testReports) {
+        return score(asList(testReports));
+    }
+
+    public SortedSet<ScoredTest> score(List<TestReport> testReports) {
         List<TestReport> sortedTestReports = sort(testReports);
 
         Map<String, Integer> scores = new HashMap<>();
@@ -27,8 +31,8 @@ final class TestScorer {
         return (testResult.unsuccessful() ? 1 : 0) * (numberOfTestReports - recencyOfTestReport);
     }
 
-    private static List<TestReport> sort(TestReport ... testReports) {
-        List<TestReport> sorted = asList(testReports);
+    private static List<TestReport> sort(List<TestReport> testReports) {
+        List<TestReport> sorted = new ArrayList<>(testReports);
         sorted.sort(comparing(TestReport::getCreationTimestamp).reversed());
         return sorted;
     }
