@@ -23,12 +23,12 @@ public class TestReportsParserTest {
     @SuppressWarnings("unchecked")
     private Parser<TestReport> testReportParser = mock(Parser.class);
 
-    private final Parser<List<TestReport>> serenityTestReportsParser = new TestReportsParser(testReportParser, isSerenityResultsDirectory());
+    private final Parser<List<TestReport>> testReportsParser = new TestReportsParser(testReportParser, isSerenityResultsDirectory());
 
     @Test
     public void shouldParseTestReports() throws IOException {
         when(testReportParser.parse(any(File.class))).thenReturn(new TestReport(asList(new TestResult("A", now(), SUCCESS))));
 
-        assertThat(serenityTestReportsParser.parse(new File("src/test")).isEmpty(), is(false));
+        assertThat(testReportsParser.parse(new File("src/test")).isEmpty(), is(false));
     }
 }
