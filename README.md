@@ -14,16 +14,16 @@ and non-deterministic failures worthy of your precious time.
 
 ## How does Test Scorer work?
 
-The idea is for `test-scorer` to sit on your build server - any build server, in fact. A build job should be set up on 
-a regular schedule to download the latest *n* test reports for a test suite of your choice - (unit tests for an 
-application, acceptance tests for an application, smoke tests across multiple applications etc.). Those test reports
-can then be plugged into `test-scorer`, which produces its own report ranking test failures by consistency. 
+The idea is for `test-scorer` to work with data supplied by your build server - in any build server, in fact. If your
+build server has enough historical data in its build artifacts, a build job can be setup on a regular schedule to 
+download the latest *n* test reports for a test suite of your choice and invoke `test-scorer` as you wish. 
+Alternatively, a post-build hook could be added to the build server in order to push the latest test report to a 
+closed-source microservice reliant on`test-scorer` for test scores. 
 
 [Dave Hounslow](https://www,twitter.com/thinkfoo) pithily decribed the algorithm used as *"Last n builds, each test 
 scores 1 for a failure, multiply by n for most recent build through 1  for oldest. Sum this. Sort descending"*  
 
-Initially, `test-scorer` will include JUnit and Cucumber parsers, and a HTML scoreboard formatter. 
-Other implementations are possible later on.
+Users of `test-scorer` are encouraged to write their own test report parsers and scored tests formatters, as they wish.
 
 ## Where do I get Test Scorer?
 
