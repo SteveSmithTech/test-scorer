@@ -1,7 +1,8 @@
-package com.github.stevesmithcd.testscorer.parser;
+package com.github.stevesmithcd.testscorer.parser.serenity;
 
 import com.github.stevesmithcd.testscorer.domain.TestReport;
 import com.github.stevesmithcd.testscorer.domain.TestResult;
+import com.github.stevesmithcd.testscorer.parser.Parser;
 import org.junit.Test;
 
 import java.io.File;
@@ -17,7 +18,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class SerenityTestReportParserTest {
-    private final File directory = new File("src/test/resources");
+    private final File file = new File("src/test/resources/results.csv");
     private final Parser<TestReport> serenityTestReportParser = new SerenityTestReportParser();
 
     @Test
@@ -25,7 +26,7 @@ public class SerenityTestReportParserTest {
         List<TestResult> expected = asList(new TestResult("S2", of(2018, 5, 1, 8, 1), SUCCESS),
                                            new TestResult("S1", of(2018, 5, 1, 8, 5), FAILURE));
 
-        TestReport testReport = serenityTestReportParser.parse(directory);
+        TestReport testReport = serenityTestReportParser.parse(file);
         assertThat(toTestResults(testReport), equalTo(expected));
     }
 

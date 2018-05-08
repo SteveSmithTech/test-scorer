@@ -30,8 +30,8 @@ public final class TestReportsParser implements Parser<List<TestReport>> {
     }
 
     @Override
-    public List<TestReport> parse(File directory) throws IOException {
-        return stream(findSerenityResultDirectories(directory, fileFilter)).map(parseTestReport()).flatMap(streamOf()).collect(toList());
+    public List<TestReport> parse(File file) throws IOException {
+        return stream(findFiles(file, fileFilter)).map(parseTestReport()).flatMap(streamOf()).collect(toList());
     }
 
     private Function<File, Optional<TestReport>> parseTestReport() {
@@ -45,7 +45,7 @@ public final class TestReportsParser implements Parser<List<TestReport>> {
         };
     }
 
-    private static File[] findSerenityResultDirectories(File directory, FileFilter fileFilter) { return ofNullable(directory.listFiles(fileFilter)).orElse(new File[0]); }
+    private static File[] findFiles(File directory, FileFilter fileFilter) { return ofNullable(directory.listFiles(fileFilter)).orElse(new File[0]); }
 
     private static Function<Optional<TestReport>, Stream<? extends TestReport>> streamOf() { return o -> o.map(Stream::of).orElseGet(Stream::empty); }
 }

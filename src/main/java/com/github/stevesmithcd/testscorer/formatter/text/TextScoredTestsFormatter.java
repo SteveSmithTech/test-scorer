@@ -1,6 +1,7 @@
-package com.github.stevesmithcd.testscorer.formatter;
+package com.github.stevesmithcd.testscorer.formatter.text;
 
 import com.github.stevesmithcd.testscorer.domain.ScoredTest;
+import com.github.stevesmithcd.testscorer.formatter.ScoredTestsFormatter;
 
 import java.io.File;
 import java.io.IOException;

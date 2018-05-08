@@ -1,12 +1,14 @@
-package com.github.stevesmithcd.testscorer.formatter;
+package com.github.stevesmithcd.testscorer.formatter.text;
 
 import com.github.stevesmithcd.testscorer.domain.ScoredTest;
+import com.github.stevesmithcd.testscorer.formatter.text.TextScoredTestsFormatter;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 import static java.io.File.createTempFile;
@@ -28,7 +30,7 @@ public class TextScoredTestsFormatterTest {
         assertThat(fileLines.get(3), equalTo("2: testApples [10]"));
     }
 
-    private TreeSet<ScoredTest> asSet(ScoredTest ... scoredTests) {
+    private SortedSet<ScoredTest> asSet(ScoredTest ... scoredTests) {
         return new TreeSet<>(asList(scoredTests));
     }
 }

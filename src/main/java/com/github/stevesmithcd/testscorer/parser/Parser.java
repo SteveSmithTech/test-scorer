@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface Parser<T> {
 
-    T parse(File directory) throws IOException;
+    T parse(File file) throws IOException;
 }
