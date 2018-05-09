@@ -3,8 +3,9 @@ package com.github.stevesmithcd.testscorer.formatter.text;
 import com.github.stevesmithcd.testscorer.domain.ScoredTest;
 import com.github.stevesmithcd.testscorer.formatter.ScoredTestsFormatter;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.SortedSet;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -14,8 +15,10 @@ import static java.time.LocalDateTime.now;
 public final class TextScoredTestsFormatter implements ScoredTestsFormatter {
 
     @Override
-    public void format(SortedSet<ScoredTest> scoredTests, File file) throws IOException {
-        write(file.toPath(), createScoreboard(scoredTests).getBytes(UTF_8));
+    public void format(SortedSet<ScoredTest> scoredTests, OutputStream outputStream) throws IOException {
+        try (PrintWriter printWriter = new PrintWriter(outputStream)) {
+            printWriter.println(createScoreboard(scoredTests));
+        }
     }
 
     private String createScoreboard(SortedSet<ScoredTest> scoredTests) {

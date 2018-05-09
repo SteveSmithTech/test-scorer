@@ -20,8 +20,8 @@ public final class SerenityTestReportParser implements Parser<TestReport> {
     private static final String SERENITY_CSV_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
 
     @Override
-    public TestReport parse(File file) throws IOException {
-        try (Reader csvReader = createCsvReader(file)) {
+    public TestReport parse(InputStream inputStream) throws IOException {
+        try (Reader csvReader = createCsvReader(inputStream)) {
             Iterable<CSVRecord> csvRecords = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvReader);
             return new TestReport(stream(csvRecords.spliterator(), false).
                                   map(toTest()).
@@ -31,7 +31,7 @@ public final class SerenityTestReportParser implements Parser<TestReport> {
 
     private static Function<CSVRecord, TestResult> toTest() { return r -> new TestResult(getName(r), getDateTime(r), getResult(r)); }
 
-    private static BufferedReader createCsvReader(File file) throws IOException { return new BufferedReader(new FileReader(file)); }
+    private static BufferedReader createCsvReader(InputStream inputStream) throws IOException { return new BufferedReader(new InputStreamReader(inputStream)); }
 
     private static LocalDateTime getDateTime(CSVRecord record) { return LocalDateTime.parse(record.get("Date"), ofPattern(SERENITY_CSV_DATE_FORMAT)); }
 

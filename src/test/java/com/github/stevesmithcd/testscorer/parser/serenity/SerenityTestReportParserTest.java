@@ -6,6 +6,7 @@ import com.github.stevesmithcd.testscorer.parser.Parser;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class SerenityTestReportParserTest {
         List<TestResult> expected = asList(new TestResult("S2", of(2018, 5, 1, 8, 1), SUCCESS),
                                            new TestResult("S1", of(2018, 5, 1, 8, 5), FAILURE));
 
-        TestReport testReport = serenityTestReportParser.parse(file);
+        TestReport testReport = serenityTestReportParser.parse(new FileInputStream(file));
         assertThat(toTestResults(testReport), equalTo(expected));
     }
 

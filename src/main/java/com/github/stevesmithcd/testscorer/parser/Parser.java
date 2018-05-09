@@ -1,12 +1,9 @@
 package com.github.stevesmithcd.testscorer.parser;
 
-import com.github.stevesmithcd.testscorer.domain.TestReport;
-
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
+import java.io.InputStream;
 
 public interface Parser<T> {
 
-    T parse(File file) throws IOException;
+    T parse(InputStream inputStream) throws IOException;
 }
