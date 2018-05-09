@@ -1,5 +1,7 @@
 # Test Scorer
 
+[![Bintray](https://api.bintray.com/packages/test-scorer/download.svg)](https://bintray.com/test-scorer)
+
 A lightweight, portable way to distinguish between deterministic success, deterministic failure, and non-deterministic 
 failure when running automated tests. 
 
