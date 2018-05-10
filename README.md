@@ -1,6 +1,6 @@
 # Test Scorer
 
-[![Build Status](https://travis-ci.org/SteveSmithCD/test-scorer.svg?branch=master)](https://travis-ci.org/SteveSmithCD/test-scorer) [ ![Download](https://api.bintray.com/packages/SteveSmithCD/releases/test-scorer/images/download.svg) ](https://bintray.com/SteveSmithCD/releases/test-scorer/_latestVersion)
+[![Build Status](https://travis-ci.org/SteveSmithCD/test-scorer.svg?branch=master)](https://travis-ci.org/SteveSmithCD/test-scorer) [ ![Download](https://api.bintray.com/packages/stevesmithcd/releases/test-scorer/images/download.svg) ](https://bintray.com/stevesmithcd/releases/test-scorer/_latestVersion)
 
 A lightweight, portable way to distinguish between deterministic success, deterministic failure, and non-deterministic 
 failure when running automated tests. 
