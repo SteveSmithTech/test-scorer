@@ -3,7 +3,7 @@ package com.github.stevesmithcd.testscorer.parser.serenity;
 import com.github.stevesmithcd.testscorer.domain.Result;
 import com.github.stevesmithcd.testscorer.domain.TestReport;
 import com.github.stevesmithcd.testscorer.domain.TestResult;
-import com.github.stevesmithcd.testscorer.parser.Parser;
+import com.github.stevesmithcd.testscorer.parser.TestReportParser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
@@ -16,7 +16,7 @@ import static java.time.format.DateTimeFormatter.ofPattern;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
-public final class SerenityTestReportParser implements Parser<TestReport> {
+public final class SerenityTestReportParser implements TestReportParser {
     private static final String SERENITY_CSV_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
 
     @Override

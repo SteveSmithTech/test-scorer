@@ -2,7 +2,8 @@ import static java.lang.System.getenv
 
 group 'com.github.stevesmithcd'
 
-version = "0.${getenv().getOrDefault("TRAVIS_BUILD_NUMBER", "1")}.0"
+def minorVersion = getenv().getOrDefault("TRAVIS_BUILD_NUMBER", "")
+version = minorVersion.isEmpty() ? "DEV" : "1.$minorVersion.0"
 
 apply plugin: 'java'
 
