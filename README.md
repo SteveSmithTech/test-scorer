@@ -29,8 +29,8 @@ Users of `test-scorer` are encouraged to write their own test report parsers and
 
 ## Where do I get Test Scorer?
 
-At the moment, Test Scorer is run from source only. Later on, it will be built on an open build server and published 
-to Bintray or similar.
+At the moment, Test Scorer is built on [Travis](https://travis-ci.org/SteveSmithCD/test-scorer) and published to 
+[Bintray](https://api.bintray.com/packages/SteveSmithCD/releases/test-scorer/).
 
 ## How do I build Test Scorer?
 
