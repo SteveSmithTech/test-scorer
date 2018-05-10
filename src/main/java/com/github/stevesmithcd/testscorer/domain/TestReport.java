@@ -13,7 +13,7 @@ public class TestReport implements Iterable<TestResult> {
         this.testResults = new TreeSet<>(testResults);
     }
 
-    LocalDateTime getCreationTimestamp() { return testResults.last().getRunTime(); }
+    LocalDateTime getRunTime() { return testResults.first().getRunTime(); }
 
     @Override
     public Iterator<TestResult> iterator() {

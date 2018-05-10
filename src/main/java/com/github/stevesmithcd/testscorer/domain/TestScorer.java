@@ -33,7 +33,7 @@ public final class TestScorer {
 
     private static List<TestReport> sort(List<TestReport> testReports) {
         List<TestReport> sorted = new ArrayList<>(testReports);
-        sorted.sort(comparing(TestReport::getCreationTimestamp).reversed());
+        sorted.sort(comparing(TestReport::getRunTime).reversed());
         return sorted;
     }
 }
