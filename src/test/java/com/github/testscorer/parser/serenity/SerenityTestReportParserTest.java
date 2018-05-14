@@ -1,8 +1,8 @@
-package com.github.stevesmithcd.testscorer.parser.serenity;
+package com.github.testscorer.parser.serenity;
 
-import com.github.stevesmithcd.testscorer.domain.TestReport;
-import com.github.stevesmithcd.testscorer.domain.TestResult;
-import com.github.stevesmithcd.testscorer.parser.TestReportParser;
+import com.github.testscorer.domain.TestReport;
+import com.github.testscorer.domain.TestResult;
+import com.github.testscorer.parser.TestReportParser;
 import org.junit.Test;
 
 import java.io.File;
@@ -10,8 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
-import static com.github.stevesmithcd.testscorer.domain.Result.FAILURE;
-import static com.github.stevesmithcd.testscorer.domain.Result.SUCCESS;
+import static com.github.testscorer.domain.Result.FAILURE;
+import static com.github.testscorer.domain.Result.SUCCESS;
 import static java.time.LocalDateTime.of;
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;

@@ -1,9 +1,9 @@
-package com.github.stevesmithcd.testscorer.parser.serenity;
+package com.github.testscorer.parser.serenity;
 
-import com.github.stevesmithcd.testscorer.domain.Result;
-import com.github.stevesmithcd.testscorer.domain.TestReport;
-import com.github.stevesmithcd.testscorer.domain.TestResult;
-import com.github.stevesmithcd.testscorer.parser.TestReportParser;
+import com.github.testscorer.domain.Result;
+import com.github.testscorer.domain.TestReport;
+import com.github.testscorer.domain.TestResult;
+import com.github.testscorer.parser.TestReportParser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
@@ -11,7 +11,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.util.function.Function;
 
-import static com.github.stevesmithcd.testscorer.domain.Result.valueOf;
+import static com.github.testscorer.domain.Result.valueOf;
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;

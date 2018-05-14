@@ -1,4 +1,4 @@
-package com.github.stevesmithcd.testscorer.domain;
+package com.github.testscorer.domain;
 
 import static java.lang.String.format;
 

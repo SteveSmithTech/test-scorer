@@ -1,6 +1,6 @@
-package com.github.stevesmithcd.testscorer.parser;
+package com.github.testscorer.parser;
 
-import com.github.stevesmithcd.testscorer.domain.TestReport;
+import com.github.testscorer.domain.TestReport;
 
 import java.io.IOException;
 import java.io.InputStream;

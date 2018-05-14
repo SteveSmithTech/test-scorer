@@ -1,6 +1,6 @@
-package com.github.stevesmithcd.testscorer.domain;
+package com.github.testscorer.domain;
 
-import static com.github.stevesmithcd.testscorer.domain.Result.SUCCESS;
+import static com.github.testscorer.domain.Result.SUCCESS;
 import static java.time.LocalDateTime.of;
 import static java.time.Month.JANUARY;
 import static org.hamcrest.core.Is.is;

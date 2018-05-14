@@ -1,4 +1,4 @@
-package com.github.stevesmithcd.testscorer.domain;
+package com.github.testscorer.domain;
 
 @SuppressWarnings("unused")
 public enum Result {

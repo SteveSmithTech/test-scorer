@@ -1,4 +1,4 @@
-package com.github.stevesmithcd.testscorer.domain;
+package com.github.testscorer.domain;
 
 import org.hamcrest.Matcher;
 
@@ -6,7 +6,7 @@ import java.time.Month;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import static com.github.stevesmithcd.testscorer.domain.Result.*;
+import static com.github.testscorer.domain.Result.*;
 import static java.lang.String.format;
 import static java.time.LocalDateTime.of;
 import static java.time.Month.*;

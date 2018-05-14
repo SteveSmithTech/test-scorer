@@ -1,7 +1,7 @@
-package com.github.stevesmithcd.testscorer.formatter.text;
+package com.github.testscorer.formatter.text;
 
-import com.github.stevesmithcd.testscorer.domain.ScoredTest;
-import com.github.stevesmithcd.testscorer.formatter.ScoredTestsFormatter;
+import com.github.testscorer.domain.ScoredTest;
+import com.github.testscorer.formatter.ScoredTestsFormatter;
 
 import java.util.SortedSet;
 

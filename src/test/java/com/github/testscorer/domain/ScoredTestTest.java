@@ -1,6 +1,4 @@
-package com.github.stevesmithcd.testscorer.domain;
-
-import org.junit.*;
+package com.github.testscorer.domain;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
