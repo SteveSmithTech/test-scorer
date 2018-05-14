@@ -8,5 +8,5 @@ import java.util.SortedSet;
 
 public interface ScoredTestsFormatter {
 
-    void format(SortedSet<ScoredTest> scoredTests, OutputStream outputStream) throws IOException;
+    String format(SortedSet<ScoredTest> scoredTests);
 }
