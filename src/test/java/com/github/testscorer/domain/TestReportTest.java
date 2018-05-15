@@ -14,9 +14,9 @@ public final class TestReportTest {
     private static final TestReport REPORT_1100 = new TestReport(asList(new TestResult("R3", of(2018, JANUARY, 1, 11, 0), SUCCESS)));
 
     @Test
-    public void shouldOrderByEarliestRunTime() {
-        assertCompare(REPORT_1000, REPORT_0900, 1);
+    public void shouldOrderByLatestRunTime() {
+        assertCompare(REPORT_1000, REPORT_0900, -1);
         assertCompare(REPORT_1000, REPORT_1000, 0);
-        assertCompare(REPORT_1000, REPORT_1100, -1);
+        assertCompare(REPORT_1000, REPORT_1100, 1);
     }
 }

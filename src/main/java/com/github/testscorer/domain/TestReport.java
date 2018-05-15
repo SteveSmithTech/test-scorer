@@ -35,5 +35,5 @@ public class TestReport implements Iterable<TestResult>, Comparable<TestReport> 
     }
 
     @Override
-    public int compareTo(TestReport o) { return getRunTime().compareTo(o.getRunTime()); }
+    public int compareTo(TestReport o) { return o.getRunTime().compareTo(getRunTime()); }
 }
