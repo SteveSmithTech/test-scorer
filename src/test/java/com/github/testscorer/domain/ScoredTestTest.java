@@ -1,7 +1,6 @@
 package com.github.testscorer.domain;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static com.github.testscorer.domain.Assert.assertCompare;
 
 public final class ScoredTestTest {
     private static final ScoredTest TEST_1 = new ScoredTest("testApples", 15);
@@ -10,7 +9,7 @@ public final class ScoredTestTest {
     private static final ScoredTest TEST_4 = new ScoredTest("testPears", 3);
 
     @org.junit.Test
-    public void shouldOrderByHighestScoreFirst() throws Exception {
+    public void shouldOrderByHighestScore() {
         assertCompare(TEST_1, TEST_1, 0);
         assertCompare(TEST_1, TEST_2, 1);
         assertCompare(TEST_1, TEST_3, -1);
@@ -28,10 +27,5 @@ public final class ScoredTestTest {
     public void shouldOrderByNameWhenScoresEqual() {
         assertCompare(TEST_3, TEST_3, 0);
         assertCompare(TEST_3, TEST_4, -1);
-    }
-
-
-    private static void assertCompare(ScoredTest scoredTest, ScoredTest otherScoredTest, int expected) {
-        assertThat(scoredTest.compareTo(otherScoredTest), is(expected));
     }
 }
