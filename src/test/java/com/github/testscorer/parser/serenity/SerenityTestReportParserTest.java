@@ -25,8 +25,8 @@ public class SerenityTestReportParserTest {
 
     @Test
     public void shouldParseTestReport() throws IOException {
-        List<TestResult> expected = asList(new TestResult("S2", of(2018, 5, 1, 8, 1), SUCCESS),
-                                           new TestResult("S1", of(2018, 5, 1, 8, 5), FAILURE));
+        List<TestResult> expected = asList(new TestResult("S2|T2", of(2018, 5, 1, 8, 1), SUCCESS),
+                                           new TestResult("S1|T1", of(2018, 5, 1, 8, 5), FAILURE));
 
         TestReport testReport = testReportParser.parse(new FileInputStream(file));
         assertThat(toTestResults(testReport), equalTo(expected));

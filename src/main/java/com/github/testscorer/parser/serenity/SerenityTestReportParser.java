@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.util.function.Function;
 
 import static com.github.testscorer.domain.Result.valueOf;
+import static java.lang.String.format;
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
@@ -31,11 +32,11 @@ public final class SerenityTestReportParser implements TestReportParser {
 
     private static Function<CSVRecord, TestResult> toTest() { return r -> new TestResult(getName(r), getDateTime(r), getResult(r)); }
 
-    private static BufferedReader createCsvReader(InputStream inputStream) throws IOException { return new BufferedReader(new InputStreamReader(inputStream)); }
+    private static BufferedReader createCsvReader(InputStream inputStream) { return new BufferedReader(new InputStreamReader(inputStream)); }
 
     private static LocalDateTime getDateTime(CSVRecord record) { return LocalDateTime.parse(record.get("Date"), ofPattern(SERENITY_CSV_DATE_FORMAT)); }
 
-    private static String getName(CSVRecord record) { return record.get("Story"); }
+    private static String getName(CSVRecord record) { return format("%s|%s", record.get("Story"), record.get("Title")); }
 
     private static Result getResult(CSVRecord record) { return valueOf(record.get("Result")); }
 }
