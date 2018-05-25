@@ -11,6 +11,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.util.function.Function;
 
+import static com.github.testscorer.domain.Result.toResult;
 import static com.github.testscorer.domain.Result.valueOf;
 import static java.lang.String.format;
 import static java.time.format.DateTimeFormatter.ofPattern;
@@ -38,5 +39,5 @@ public final class SerenityTestReportParser implements TestReportParser {
 
     private static String getName(CSVRecord record) { return format("%s|%s", record.get("Story"), record.get("Title")); }
 
-    private static Result getResult(CSVRecord record) { return valueOf(record.get("Result")); }
+    private static Result getResult(CSVRecord record) { return toResult(record.get("Result")); }
 }
