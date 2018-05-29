@@ -96,7 +96,7 @@ public class TestScorerTest {
     private static Matcher<SortedSet<ScoredTest>> hasScores(ScoredTest ... expected) { return equalTo(asSet(expected)); }
 
     private static ScoredTest aScore(int id, int score) {
-        return new ScoredTest(toTestId(id), score);
+        return new ScoredTest(toTestId(id), score, 1);
     }
 
     private static TestReport aReport(TestResult ... tests) { return new TestReport(asList(tests)); }

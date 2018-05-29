@@ -3,10 +3,10 @@ package com.github.testscorer.domain;
 import static com.github.testscorer.domain.Assert.assertCompare;
 
 public final class ScoredTestTest {
-    private static final ScoredTest TEST_1 = new ScoredTest("testApples", 15);
-    private static final ScoredTest TEST_2 = new ScoredTest("testBananas", 27);
-    private static final ScoredTest TEST_3 = new ScoredTest("testOranges", 3);
-    private static final ScoredTest TEST_4 = new ScoredTest("testPears", 3);
+    private static final ScoredTest TEST_1 = new ScoredTest("testApples", 15, 1);
+    private static final ScoredTest TEST_2 = new ScoredTest("testBananas", 27, 1);
+    private static final ScoredTest TEST_3 = new ScoredTest("testOranges", 3, 1);
+    private static final ScoredTest TEST_4 = new ScoredTest("testPears", 3, 1);
 
     @org.junit.Test
     public void shouldOrderByHighestScore() {

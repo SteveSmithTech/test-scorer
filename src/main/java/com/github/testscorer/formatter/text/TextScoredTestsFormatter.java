@@ -30,6 +30,6 @@ public final class TextScoredTestsFormatter implements ScoredTestsFormatter {
     }
 
     private static String createScoreboardRow(int position, ScoredTest scoredTest) {
-        return String.format("%d: %s [%d]\n", position, scoredTest.getName(), scoredTest.getScore());
+        return String.format("%d. %s: %d [%d]\n", position, scoredTest.getName(), scoredTest.getScore(), scoredTest.getCount());
     }
 }

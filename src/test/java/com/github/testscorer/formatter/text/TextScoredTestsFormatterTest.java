@@ -17,12 +17,12 @@ public class TextScoredTestsFormatterTest {
 
     @Test
     public void shouldWriteTextTestScoreboardToFile() throws IOException {
-        String string = new TextScoredTestsFormatter().format(asSet(new ScoredTest("testApples", 10), new ScoredTest("testBananas", 15)));
+        String string = new TextScoredTestsFormatter().format(asSet(new ScoredTest("testApples", 10, 1), new ScoredTest("testBananas", 15, 2)));
 
         List<String> lines = asList(string.split("\n"));
         assertThat(lines.get(0).contains("TestResult Scorer : TestResult Scoreboard"), is(true));
-        assertThat(lines.get(2), equalTo("1: testBananas [15]"));
-        assertThat(lines.get(3), equalTo("2: testApples [10]"));
+        assertThat(lines.get(2), equalTo("1. testBananas: 15 [2]"));
+        assertThat(lines.get(3), equalTo("2. testApples: 10 [1]"));
     }
 
     private SortedSet<ScoredTest> asSet(ScoredTest ... scoredTests) {
