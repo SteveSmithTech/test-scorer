@@ -29,7 +29,7 @@ as follows:
 - If a test was successful, it has a score of 0
 - If a test was a failure, it has a score of 1 * (number of reports - recency of report)
 
-For example, assume a test suite of 4 tests is run 10 times. The results sorted in order of recency would be:
+For example, assume a test suite of 5 tests is run 10 times. The results sorted in order of recency would be:
 
 |Test|Results|Calculation|Score|
 |----|-------|-----------|-----|
