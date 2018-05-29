@@ -23,11 +23,21 @@ Alternatively, a post-build hook could be added to the build server in order to 
 closed-source microservice reliant on`test-scorer` for test scores. 
 
 [Dave Hounslow](https://www,twitter.com/thinkfoo) pithily decribed the algorithm used as *"Last n builds, each test 
-scores 1 for a failure, multiply by n for most recent build through 1  for oldest. Sum this. Sort descending"*  
+scores 1 for a failure, multiply by n for most recent build through 1  for oldest. Sum this. Sort descending"*. It works
+as follows:
+
+- If a test was successful, it has a score of 0
+- If a test was a failure, it has a score of 1 * (number of reports - recency of report)
+
+For example, assume a test suite of 4 tests is run 10 times. If test T1 never fails [SSSSSSSSSS], its score will be 0.
+If test T2 always fails [FFFFFFFFFF], its score will be (1 * 10) + (1 * 9) + (1 * 8) + (1 * 7) + (1 * 6) + (1 * 5) + 
+(1 * 4) + (1 * 3) + (1 * 2) + (1 * 1) = 55. If test T3 succeeds and then starts to fail [SSSSSFFFFF], its score will be 
+(1 * 10) + (1 * 9) + (1 * 8) + (1 * 7) + (1 * 6) = 40. It test T4 fails and then starts to succeed [FFFFFSSSSS], its 
+score will be (1 * 5) + (1 * 4) + (1 * 3) + (1 * 2) + (1 * 1) = 15.   
 
 Users of `test-scorer` are encouraged to write their own test report parsers and scored tests formatters, as they wish.
 
-## Where do I get Test Scorer?
+## Where do I get Test Scorer? 
 
 At the moment, Test Scorer is built on [Travis](https://travis-ci.org/SteveSmithCD/test-scorer) and published to 
 [Bintray](https://api.bintray.com/packages/SteveSmithCD/releases/test-scorer/).
