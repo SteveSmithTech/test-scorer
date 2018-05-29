@@ -33,11 +33,11 @@ For example, assume a test suite of 5 tests is run 10 times. The results sorted 
 
 |Test|Results|Calculation|Score|
 |----|-------|-----------|-----|
-|1|SSSSSSSSSS|0+0+0+0+0+0+0+0+0+0|0|
-|2|FFFFFFFFFF|(1 * 10) + (1 * 9) + (1 * 8) + (1 * 7) + (1 * 6) + (1 * 5) + (1 * 4) + (1 * 3) + (1 * 2) + (1 * 1)|55|
-|3|FFFFFSSSSS|(1 * 10) + (1 * 9) + (1 * 8) + (1 * 7) + (1 * 6) + 0 + 0 + 0 + 0 + 0|40|
-|4|FSFSFSFSFS|(1 * 10) + 0 + (1 * 8) + 0 + (1 * 6) + 0 + (1 * 4) + 0 (1 * 2) + 0)|28|
-|5|SSSSSFFFFF|0 + 0 + 0 + 0 + 0 + (1 * 5) + (1 * 4) + (1 * 3) + (1 * 2) + (1 * 1)|15|
+|1|FFFFFFFFFF|(1 * 10) + (1 * 9) + (1 * 8) + (1 * 7) + (1 * 6) + (1 * 5) + (1 * 4) + (1 * 3) + (1 * 2) + (1 * 1)|55|
+|2|FFFFFSSSSS|(1 * 10) + (1 * 9) + (1 * 8) + (1 * 7) + (1 * 6) + 0 + 0 + 0 + 0 + 0|40|
+|3|FSFSFSFSFS|(1 * 10) + 0 + (1 * 8) + 0 + (1 * 6) + 0 + (1 * 4) + 0 (1 * 2) + 0)|28|
+|4|SSSSSFFFFF|0 + 0 + 0 + 0 + 0 + (1 * 5) + (1 * 4) + (1 * 3) + (1 * 2) + (1 * 1)|15|
+|5|SSSSSSSSSS|0+0+0+0+0+0+0+0+0+0|0|
  
 Users of `test-scorer` are encouraged to write their own test report parsers and scored tests formatters, as they wish.
 
