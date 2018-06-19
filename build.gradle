@@ -22,10 +22,11 @@ jar {
 
 dependencies {
     compile group: 'org.apache.commons', name: 'commons-csv', version: '1.5'
+    compile group: 'org.apache.commons', name: 'commons-lang', version: '1.5'
 
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.7'
-
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

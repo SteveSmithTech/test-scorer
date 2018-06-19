@@ -3,10 +3,13 @@
 For results produced by https://github.com/cucumber/cucumber-js, this parser can generate test stability reports at
 the _scenario_ level
 
-* For a scenario, we calculate a pass if all the steps have passed or were skipped
-* Otherwise we call it a fail
+We map the scenario steps to a test status as
+* all passed = SUCCESS
+* any failed = FAILED
+* any skipped = IGNORED
+* any ambiguous or undefined = ERROR
 
-We identify tests as `{Feature}`/`{Scenario name}` when we map them to the test-scorer `TestReport` domain.
+We identify tests as `{Feature}`::`{Scenario name}` when we map them to the test-scorer `TestReport` domain.
 
 ### And example of a report file
 ```json
@@ -29,7 +32,7 @@ We identify tests as `{Feature}`/`{Scenario name}` when we map them to the test-
     "uri": "/some/path/here",
     "elements": [
       {
-        "keyword": "Scenario1",
+        "keyword": "Scenario",
         "line": 10,
         "name": "An example Scenario",
         "tags": [
