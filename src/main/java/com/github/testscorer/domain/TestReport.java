@@ -2,6 +2,7 @@ package com.github.testscorer.domain;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Stream;
 
 import static java.util.Optional.*;
 import static java.util.Optional.empty;
@@ -33,6 +34,8 @@ public class TestReport implements Iterable<TestResult>, Comparable<TestReport> 
     public Iterator<TestResult> iterator() {
         return testResults.iterator();
     }
+
+    public Stream<TestResult> stream() { return testResults.stream(); }
 
     @Override
     public int compareTo(TestReport o) { return o.getRunTime().compareTo(getRunTime()); }

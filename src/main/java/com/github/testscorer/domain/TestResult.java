@@ -23,7 +23,7 @@ public final class TestResult implements Comparable<TestResult> {
         return runTime;
     }
 
-    boolean unsuccessful() {
+    public boolean unsuccessful() {
         return result.unsuccessful();
     }
 
