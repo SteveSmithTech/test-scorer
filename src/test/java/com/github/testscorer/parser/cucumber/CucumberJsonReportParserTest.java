@@ -57,7 +57,7 @@ public class CucumberJsonReportParserTest {
     }
 
     @Test
-    public void shouldReportIgnoredIfAnyStepAmbiguousAndNotFailed() {
+    public void shouldReportErrorIfAnyStepAmbiguousAndNotFailed() {
         List<Step> steps = asList(
                 stepOf("passed"),
                 stepOf("ignored"),
@@ -70,7 +70,7 @@ public class CucumberJsonReportParserTest {
     }
 
     @Test
-    public void shouldReportIgnoredIfAnyStepUndefinedAndNotFailed() {
+    public void shouldReportErrorIfAnyStepUndefinedAndNotFailed() {
         List<Step> steps = asList(
                 stepOf("passed"),
                 stepOf("ignored"),
