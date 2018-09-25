@@ -15,8 +15,12 @@ public final class TestResult implements Comparable<TestResult> {
         this.result = result;
     }
 
-    String getName() {
-        return name;
+    public String getName() {
+        return this.name;
+    }
+
+    public Result getResult() {
+        return this.result;
     }
 
     LocalDateTime getRunTime() {
